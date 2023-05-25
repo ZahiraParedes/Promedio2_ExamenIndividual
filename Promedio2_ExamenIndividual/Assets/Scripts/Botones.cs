@@ -5,11 +5,6 @@ using UnityEngine.UI;
 
 public abstract class Botones : MonoBehaviour
 {
-    public Text counterText;
-    protected int counter = 0;
+    public int counter = 0;
 
-    protected void UpdateCounterText()
-    {
-        counterText.text = "Puntaje: " + counter.ToString();
-    }
 }

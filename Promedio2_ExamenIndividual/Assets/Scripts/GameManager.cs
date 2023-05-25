@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 public class GameManager : MonoBehaviour
@@ -8,8 +9,17 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     private int score = 0;
+    public Text scoreText;
 
-    public event Action<int> ScoreChanged;
+    public static GameManager getInstance()
+    {
+        return Instance;
+    }
+
+    private void UpdateScoreText()
+    {
+        scoreText.text = "Puntaje: "+ score;
+    }
 
     private void Awake()
     {
@@ -32,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     private void NotifyScoreChanged()
     {
-        ScoreChanged?.Invoke(score);
+        UpdateScoreText();
     }
 }
 
